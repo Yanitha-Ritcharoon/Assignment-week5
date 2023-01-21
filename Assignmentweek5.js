@@ -9,7 +9,7 @@ class Country {
 // Menu options on website
 class Menu {
   constructor() {
-    this.country = [];
+    this.countries = [];
   }
   start() {
     let selection = this.showMainMenuOptions();
@@ -24,8 +24,6 @@ class Menu {
         case "3":
           this.deleteCountry();
           break;
-        case "4":
-          this.displayCountry();
         default:
           selection = 0;
       }
@@ -39,7 +37,6 @@ class Menu {
         1) create new country
         2) view countries list
         3) delete country
-        4) display all countries
         0) exit
         `);
   }
@@ -47,16 +44,16 @@ class Menu {
   // code for user enter new elements to array
   createCountry() {
     let name = prompt("Enter name of new country:");
-    this.country.push(new Country(name));
+    this.countries.push(new Country(name));
     alert("This country was just added to top 10", new Country(name));
   }
   //created a method that returns a list of Top 10 countries
   viewCountry() {
     let countryNameList = "";
     // for loop to iterate through current array of Top 5 countries
-    for (let index = 0; index < this.country.length; index++) {
+    for (let index = 0; index < this.countries.length; index++) {
       // assigning iteration to new variable
-      countryNameList += index + `) ${this.country[index].name}` + `\n`;
+      countryNameList += index + `) ${this.countries[index].name}` + `\n`;
     }
     alert(countryNameList);
   }
@@ -67,21 +64,14 @@ class Menu {
     // console.log("index logic 1", indexOfCountry > -1); // test if the first condition is true
     // console.log("index logic 2", indexOfCountry < this.country.length); // test if second the condition is true
 
-    if (indexOfCountry > -1 && indexOfCountry < this.country.length) {
+    if (indexOfCountry > -1 && indexOfCountry < this.countries.length) {
       console.log("country before:", this.country);
-      alert(`${this.country[indexOfCountry].name} was deleted.`);
-      this.country.splice(indexOfCountry, 1); // delete 1 element at index within the country array.
-      console.log("country after:", this.country);
+      alert(`${this.countries[indexOfCountry].name} was deleted.`);
+      this.countries.splice(indexOfCountry, 1); // delete 1 element at index within the country array.
+      console.log("country after:", this.countries);
       // after log/alert, then delete data/perform code
     }
   }
-  displayCountry() {
-    let countryString = '';
-    for (let i = 0; i < this.country.length; i++) {
-        countryString += i + ') ' + this.country[i].name + '\n';
-    }
-    alert(countryString);
-}
 }
 // run the program on start
 let menu = new Menu();
