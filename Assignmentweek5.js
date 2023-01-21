@@ -50,7 +50,7 @@ class Menu {
   //created a method that returns a list of Top 10 countries
   viewCountry() {
     let countryNameList = "";
-    // for loop to iterate through current array of Top 5 countries
+    // for loop to iterate through current array of Top 10 countries
     for (let index = 0; index < this.countries.length; index++) {
       // assigning iteration to new variable
       countryNameList += index + `) ${this.countries[index].name}` + `\n`;
